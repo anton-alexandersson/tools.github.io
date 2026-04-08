@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Replace Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+        }
+
+        label {
+            display: block;
+            margin-top: 1em;
+        }
+
+        textarea, input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 0.5em;
+        }
+
+        #result {
+            margin-top: 2em;
+            padding: 1em;
+            background: #f4f4f4;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h2>String Replace Tool</h2>
+    <label>
+        Text:
+        <textarea id="inputText" rows="5"></textarea>
+    </label>
+    <label>
+        Replace:
+        <textarea id="findText" , rows="2"></textarea>
+    </label>
+    <label>
+        With:
+        <textarea id="replaceText" rows="2"></textarea>
+    </label>
+    <div id="result"></div>
+    <script>const inputText = document.getElementById('inputText');
+        const findText = document.getElementById('findText');
+        const replaceText = document.getElementById('replaceText');
+        const result = document.getElementById('result');
+
+        function updateResult() {
+            const text = inputText.value;
+            const find = findText.value;
+            const replace = replaceText.value;
+            if (find === "") {
+                result.textContent = text;
+                return;
+            }
+            // Replace all occurrences (escape special regex chars)
+            const escapedFind = find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const replaced = text.replace(new RegExp(escapedFind, 'g'), replace);
+            result.textContent = replaced;
+        }
+
+        inputText.addEventListener('input', updateResult);
+        findText.addEventListener('input', updateResult);
+        replaceText.addEventListener('input', updateResult);
+
+        updateResult();</script>
+</body>
+</html>
