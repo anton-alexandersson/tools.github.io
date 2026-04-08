@@ -25,6 +25,7 @@
             padding: 1em;
             background: #f4f4f4;
             border-radius: 4px;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -40,32 +41,34 @@
     </label>
     <label>
         With:
-        <input type="text" id="replaceText">
+        <textarea id="replaceText" rows="2"></textarea>
     </label>
     <div id="result"></div>
-    <script>const inputText = document.getElementById('inputText');
-      const findText = document.getElementById('findText');
-      const replaceText = document.getElementById('replaceText');
-      const result = document.getElementById('result');
+    <script>
+        const inputText = document.getElementById('inputText');
+        const findText = document.getElementById('findText');
+        const replaceText = document.getElementById('replaceText');
+        const result = document.getElementById('result');
 
-      function updateResult() {
-         const text = inputText.value;
-         const find = findText.value;
-         const replace = replaceText.value;
-         if (find === "") {
-            result.textContent = text;
-            return;
-         }
-         // Replace all occurrences (escape special regex chars)
-         const escapedFind = find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-         const replaced = text.replace(new RegExp(escapedFind, 'g'), replace);
-         result.textContent = replaced;
-      }
+        function updateResult() {
+            const text = inputText.value;
+            const find = findText.value;
+            const replace = replaceText.value;
+            if (find === "") {
+                result.textContent = text;
+                return;
+            }
+            // Replace all occurrences (escape special regex chars)
+            const escapedFind = find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const replaced = text.replace(new RegExp(escapedFind, 'g'), replace);
+            result.textContent = replaced;
+        }
 
-      inputText.addEventListener('input', updateResult);
-      findText.addEventListener('input', updateResult);
-      replaceText.addEventListener('input', updateResult);
+        inputText.addEventListener('input', updateResult);
+        findText.addEventListener('input', updateResult);
+        replaceText.addEventListener('input', updateResult);
 
-      updateResult();</script>
+        updateResult();
+    </script>
 </body>
 </html>
