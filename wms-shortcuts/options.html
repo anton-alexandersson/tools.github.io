@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WMS Shortcuts � Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+            max-width: 700px;
+        }
+
+        h2 {
+            margin-bottom: 0.5em;
+        }
+
+        p {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .row {
+            display: flex;
+            gap: 0.5em;
+            align-items: center;
+            margin-bottom: 0.75em;
+        }
+
+            .row label {
+                min-width: 90px;
+                font-weight: bold;
+            }
+
+            .row input {
+                flex: 1;
+                padding: 0.4em;
+            }
+
+        button {
+            margin-top: 1em;
+            padding: 0.5em 1.5em;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-left: 1em;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>WMS Shortcuts</h2>
+    <p>
+        Enter the <strong>relative path</strong> that will be appended after
+        <code>https://wms1.ongoingsystems.se/{databasename}/</code>.<br>
+        Keyboard bindings can be changed in <code>chrome://extensions/shortcuts</code>.
+    </p>
+
+    <div id="fields"></div>
+    <button id="save">Save</button><span id="status"></span>
+
+    <script src="options.js"></script>
+</body>
+</html>

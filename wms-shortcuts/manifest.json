@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "WMS Shortcuts",
+  "version": "1.0",
+  "description": "Custom keyboard shortcuts for WMS navigation",
+  "permissions": ["activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "shortcut-1": {
+      "suggested_key": {
+        "default": "Alt+O"
+      },
+      "description": "E.g. Orders"
+    },
+      "shortcut-2": {
+        "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "Custom shortcut 2",
+      "shortcut-3": {
+        "suggested_key": {
+          "default": "Alt+E"
+        },
+        "description": "Custom shortcut 3"
+      },
+      "shortcut-4": {
+        "suggested_key": {
+        "default": "Alt+A"
+        },
+        "description": "Custom shortcut 4"
+      },
+      "shortcut-5": {
+        "suggested_key": {
+        "default": "Alt+I"
+        },
+        "description": "Custom shortcut 5"
+      },
+      "shortcut-6": {
+        "suggested_key": {
+        "default": "Alt+M"
+        },
+        "description": "Custom shortcut 6"
+      },
+      "shortcut-7": {
+        "suggested_key": {
+        "default": "Alt+U"
+        },
+        "description": "Custom shortcut 7"
+      }
+    }
+}
